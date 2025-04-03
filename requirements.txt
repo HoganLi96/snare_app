@@ -4,3 +4,4 @@ transformers==4.39.3
 tensorflow==2.18.0
 keras==3.8.0
 sentencepiece==0.1.99
+numpy<2.0.0
