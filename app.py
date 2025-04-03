@@ -31,15 +31,18 @@ model = DeepScan(
     num_hidden=NUM_HIDDEN,
     window_sizes=WINDOW_SIZES
 )
-
+model.build(input_shape=(None, 1, MAXSEQ, NUM_FEATURE))
 
 dummy_input = tf.random.normal((1, 1, MAXSEQ, NUM_FEATURE))
-model(dummy_input)
+_ = model(dummy_input, training=False)
+
+# dummy_input = tf.random.normal((1, 1, MAXSEQ, NUM_FEATURE))
+# model(dummy_input)
 
 
 model.load_weights("model/weights-53.weights.h5")
-model.summary()
 print("DeepScan model loaded successfully.")
+model.summary()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
