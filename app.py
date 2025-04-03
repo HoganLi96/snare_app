@@ -64,5 +64,6 @@ def index():
     return render_template("index.html", result=result)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # lấy PORT từ Render
+    port = int(os.environ.get("PORT", 10000)) 
+    print(f"App starting on port {port}...")
     app.run(host="0.0.0.0", port=port)
