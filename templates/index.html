@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SNARE Protein Classifier</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f2f2f2; }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 20px; }
+    .result { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>🔬 SNARE Protein Classifier</h1>
+  <form method="post">
+    <label>Input Protein Sequences:</label>
+    <textarea name="sequence" rows="6" placeholder="VD: MSKGEELFTGVVPILVELD..."></textarea>
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    📌 <strong>Result:</strong> {{ result.label }} <br>
+    🔎 <strong>Confidence:</strong> {{ result.confidence }}
+  </div>
+  {% endif %}
+</body>
+</html>
